@@ -423,6 +423,274 @@ Percentage\ of\ DFF's = Flop\ Ratio * 100
 [Youtube link2](https://www.youtube.com/watch?v=Vhyv0eq_mLU)
 </details>  
 
+<details>
+ <summary><b>Phase 2 - Floorplan Fundamentals (macro awareness for Caravel blocks)</b></summary>  
+ 
+ **Defining width and height of core and die**  
+   <p align="center">
+    <img src="https://github.com/user-attachments/assets/494732a5-2e6c-4eee-bc99-8e373c45f20c" width="700" />
+  </p> 
+
+FF - Flip Flops/Latches/Registers  
+A1, O1 - Standard cells(AND,OR,INVERTER)  
+Consider a netlist with 2 flops and 2 AND gates, with above shown connections. (A netlist describes the connectivity of an electronic design). Though the logic gates are represented using different symbols, the standard cells are rectangular with a fixed height and variable width, which is usually an integral multiple of fixed value called site width.  
+Assuming a dimension of 1u x 1u, the cell will have an area of 1 sq. u. The minimum area occupied by the netlist will the total area of all the cells (wire lenght is excluded).
+
+   <p align="center">
+    <img src="https://github.com/user-attachments/assets/e234f2ac-08d6-4c8f-8509-6a4288e88ea3" width="500" />
+  </p>
+
+  Rearranging the cells as shown in the below picture we get a total area of 4sq. units.  
+  What is 'core' and 'die' section of a chip?  
+  **Core** – A core is the section of the chip where the fundamental logic of the design is placed.  
+  **Die** – A die, which consists of core, is small semiconductor material specimen on which the fundamental circuit is fabricated.  
+  
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/d3a092a3-f599-4677-8d75-5de02c4c2f40" width="300"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/fe1ef751-9bc3-4caa-b7cb-976619f6cf10" width="300"/>
+    </td>
+  </tr>
+</table>
+
+  Place all the logical cells inside the core. The logical cells occupy the complete area of the core. So in this case the utilization 
+  is 100%.  
+
+```math
+Utilization\ Factor = \frac{Area\ Occupied\ by\ Netlist}{Total\ Area\ of\ Core}
+                    = \frac{4\ sq.\ units}{2\ *\ 2\ sq.\ units}
+                    = 1
+
+```
+```math
+Aspect\ Ratio = \frac{Height}{Width}
+                    = \frac{2}{2}
+                    = 1
+
+```
+<br> </br>
+   <p align="center">
+    <img src="https://github.com/user-attachments/assets/5d2e276f-f793-4fad-bc93-1e5ef5630793" width="500" />
+  </p>
+
+```math
+Utilization\ Factor = \frac{Area\ Occupied\ by\ Netlist}{Total\ Area\ of\ Core}
+                    = \frac{4\ sq.\ units}{4\ *\ 2\ sq.\ units}
+                    = 0.5
+
+```
+```math
+Aspect\ Ratio = \frac{Height}{Width}
+                    = \frac{2}{4}
+                    = 0.5
+
+```
+
+Whenever the aspect ratio is 1, it means the shape of the die is a square otherwise it is a rectangle.
+
+ **Define Locations of preplaced cells**  
+ ***Preplaced cells :*** Let’s say there is combinational logic that performs a specific task and circuit is pretty huge (50k to 100k gates).  We need not implement it every time it is used in the design. It is implemented as a separate block as IP. This IP can be directly used in our design as many times as required without implementing it multiple times.  
+ 
+In the combinational circuit we can again split to blocks as shown below. The two blocks are implemented separately. Each block will have its own set of inputs and outputs. The two blocks can be now treated as blackboxes after defining the set of inputs and outputs of each block. Each block can be implemented independently.
+
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c5f03532-9716-4f21-b70e-5b48abd679af" width="350"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/179283ba-de18-4f2b-ac39-6156b092c88a" width="350"/>
+    </td>
+  </tr>
+</table>
+
+   <p align="center">
+    <img src="https://github.com/user-attachments/assets/7da8674f-99be-40c4-a7da-efabcb8500b9" width="500" />
+  </p>
+
+There are IP’s available for eg. Memory, Clock-gating cell, comparator, Mux
+-	The arrangement of these IPs in a chip is referred to as floor planning
+-	These IP’s/blocks have user-defined locations, and hence are placed in chip before automated placement-and-routing are called as **_pre-placed_** cells
+-	Automated placement and routing tools place the remaining logical cells in the design onto chip.
+
+The location of the preplaced cells are decided by the design scenario, let’s say a block has most of the connections with input ports, then the block is placed closer to the input ports. Similarly, the design background/summary will decide the location of the pre-placed cells. These pre-placed cells once placed are not touched during rest of the flow, so the locations have to be decided carefully.
+
+   <p align="center">
+    <img src="https://github.com/user-attachments/assets/944cfdab-f9b5-441a-ae8f-288f9e0c26c8" width="500" />
+  </p>
+
+**Surround pre-placed with decoupling capacitors**  
+***Decoupling capacitors***  
+Consider the amount of switching current required for a complex circuit something like below:  
+
+   <p align="center">
+    <img src="https://github.com/user-attachments/assets/0950a219-5a81-4309-bc58-fee414ceee00" width="500" />
+  </p>
+
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/0202ac38-864b-47b6-b666-00cef07e9f8b" width="350"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/1b725a8d-2178-4986-bd7e-99160eda681e" width="350"/>
+    </td>
+  </tr>
+</table>
+
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/e815ced8-5154-4eac-bc51-6a88df52a985" width="350"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/1279009b-f499-47a6-8a7a-7d276af3c146" width="350"/>
+    </td>
+  </tr>
+</table>
+
+
+When the output of let’s say an AND gate in the circuit switches its output from logic 0 to logic 1, there is current demand which has to charge the capacitance at output of the AND gate to represent the logic 1. This current is supplied by the power supply. The parasitics causes voltage drop, which might lead to undefined voltage level. To solve this we add a decoupling capacitor that will supply the charge at times of such current demands.
+
+**Power Planning**  
+We have taken care of the local communication. Now we have to solve the global communication. Consider the case where we have multiple instances of the block for which we added the decoupling capacitor. All the blocks are interconnected as shown in the pictures below. If the orange line is a 16-bit bus, any switching from driver to load has to be intact which needs the charge supply.
+
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/675ac3cd-bb8a-4dce-a7ba-c915390b575d" width="350"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6cbfd7c6-74cf-4e86-8e16-0daa802fca5d" width="350"/>
+    </td>
+  </tr>
+</table>
+
+Consider the initial state of the 16-bit bus connected through an inverter.  
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/585e79cb-10c8-413e-be9f-c360c4f2d04d" width="500" />
+  </p>
+All the capacitor charged to V volts have to discharge to 0 volts through single ground tap point. This will cause a bump in ground tap point called the ground debounce. If this bounce exceeds the noise margin then the signal enters the undefined state.
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/ef9b3129-aa4a-41cb-b4c4-44214c247933" width="500" />
+  </p>
+All the capacitor charged to 0 volts have to charge to V volts through single Vdd tap point. This will cause lowering of voltage at Vdd tap point called the Voltage droop.    
+
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/b575a1c5-b02a-4798-bf3e-f53e78bc82f6" width="500" />
+  </p>
+
+The cause of this problem is that the the supply is coming from a single point. If there were power supply all over the place then they would've satisfied the requirement. This problem is solved by adding multiple vdd and vss supplies. To achieve this a mesh like structure is created for the vdd and vss lines so that any cell or macro requiring the supply can get it from the nearest tap points. the tap points are the intersetion points on the mesh structure. This is called ***Power Planning***.
+
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/518ab0a1-ebee-48b8-85d9-3df80adf8f3e" width="400" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/89faf0c8-3f8b-4948-b80e-19373a769ea2" width="450" />
+    </td>
+  </tr>
+</table>
+
+**Pin Placement**  
+For example, consider the below design that needs to be implemented.
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/1b42e965-36a9-4ccc-b82a-96de1dfcebfb" width="500" />
+  </p>
+  
+The placement of I/O pins depends on the design requirements. In this case all the input ports are on the left and all the output pins are on the right. The clock pin drives a large number of cells hence it needs to have least resistance path, which is why the size of the clock pins are large compared to the other pins.  
+
+  <table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/aca7b7e3-7169-447b-84fa-c2dbec77b571" width="450" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6f2ce085-4eaa-44e1-9fe0-74ee02bdf909" width="400" />
+    </td>
+  </tr>
+</table>
+
+The area where the pins are placed has to be blocked for the automated place and route tool hence a logical cell placement blockage is inserted in this area.
+
+**Lab2**  
+In the below directory, there are config.tcl files for each step. This is like the default setting that will be used if any configuration is not specified for any particular step.
+
+```bash
+cd ~/Desktop/work/tools/openlane_working_dir/openlane/configurations
+```
+
+The README file in this directory gives a brief description of the different types of options/switches available like FP_CORE_UTIL(sets the core utilization, 50% by default).  
+Order of precedence for the configuration is  
+configurations/&lt;step&gt;.tcl -> config.tcl(inside the design dir) -> &lt;sky130&gt;config.tcl  
+
+```bash
+#command to run floorplan
+run_floorplan
+```
+  <table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="935" alt="vsd7" src="https://github.com/user-attachments/assets/2c893d0f-bc5c-474a-8739-967d6d357c84" />
+    </td>
+    <td align="center">
+    <img width="1920" height="935" alt="vsd8" src="https://github.com/user-attachments/assets/7d52a46f-6c0d-411a-b032-1a284e2a8ff4" />
+    </td>
+  </tr>
+</table>
+
+  <p align="center">
+   <img width="1920" height="935" alt="vsd9" src="https://github.com/user-attachments/assets/638eb22d-176d-43b1-887a-8b7184b72dec" />
+  </p>
+
+  ```math
+1000\ Unit\ Distance = 1\ Micron
+```
+```math
+Die\ width\ in\ unit\ distance = 660685 - 0 = 660685
+```
+```math
+Die\ height\ in\ unit\ distance = 671405 - 0 = 671405
+```
+```math
+Distance\ in\ microns = \frac{Value\ in\ Unit\ Distance}{1000}
+```
+```math
+Die\ width\ in\ microns = \frac{660685}{1000} = 660.685\ Microns
+```
+```math
+Die\ height\ in\ microns = \frac{671405}{1000} = 671.405\ Microns
+```
+```math
+Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
+```
+
+  
+  ```bash
+  # Change directory to path containing generated floorplan def
+  cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+  
+  # Command to load the floorplan def in magic tool
+  magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+  ```
+
+ <table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="935" alt="vsd10" src="https://github.com/user-attachments/assets/f7621886-891f-4ce6-af12-12dcb359f832" />
+    </td>
+    <td align="center">
+     <img width="1920" height="935" alt="vsd11" src="https://github.com/user-attachments/assets/e905243c-5783-407b-bd84-5e871d7731d0" />
+    </td>
+  </tr>
+</table>
+</details>
+
+
 ## Week 2
 <details>
  <summary><b>Chip Floor planning considerations</b></summary>
