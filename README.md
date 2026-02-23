@@ -35,14 +35,15 @@ make test
 
 <details>
  <summary><b>Phase 1 - OpenLANE Flow Familiarity (RTL → Synthesis literacy)</b></summary>  
+ 
   ### Get familiar to open-source EDA tools
   [Directory Structure](directory_structure.md)  Click at your own risk :)
 
 To run your own design, follow the same directory structure as shown in /.openlane-designs/picorv32a. At minimum, your design folder should contain:
+- config.tcl – design configurations and environment settings
+- src/ – RTL source files (sdc and verilog)
 
-config.tcl – design configurations and environment settings
-src/ – RTL source files (sdc and verilog)
-Once you’ve created this folder, run the flow using:
+run the flow using:
   
 ```bash
 # cd into the openlane directory
@@ -184,7 +185,7 @@ Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}
 
 Percentage\ of\ DFF's = Flop\ Ratio * 100  
                       = 0.0871515020531662 *100  
-                      = 8.72 %
+                      = 8.72 % 
 
 ```
 <br />
