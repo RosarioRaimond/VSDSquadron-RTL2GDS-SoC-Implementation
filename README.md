@@ -171,14 +171,6 @@ run_synthesis
   </p> 
   
 ```bash
-/home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.23_14.06.07/reports/synthesis/1-synthesis_dff.stat
-```
-
-  <p align="center">
-    <img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/45e78370-e801-487f-b7ff-f3cfffa9e693" />
-  </p> 
-  
-```bash
 /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.23_14.06.07/reports/synthesis/1-synthesis.AREA_0.stat.rpt
 ```
   <p align="center">
@@ -195,16 +187,16 @@ run_synthesis
 
 ```math
 Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}  
-            = \frac{1613}{18508}  
-            = 0.0871515020531662  
+            = \frac{1613}{15762}  
+            = 0.1023347290952925  
 ```
 <br />
 
 ```math
 
 Percentage\ of\ DFF's = Flop\ Ratio * 100  
-                      = 0.0871515020531662 *100  
-                      = 8.72 % 
+                      = 0.1023347290952925 *100  
+                      = 10.23 % 
 
 ```
 <br />
