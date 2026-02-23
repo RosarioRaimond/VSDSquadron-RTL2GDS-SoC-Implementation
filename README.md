@@ -169,10 +169,29 @@ run_synthesis
   <p align="center">
     <img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/00b256e7-5720-4019-8259-34da5244280f" />
   </p> 
+  
+```bash
+/home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.23_14.06.07/reports/synthesis/1-synthesis_dff.stat
+```
 
   <p align="center">
     <img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/45e78370-e801-487f-b7ff-f3cfffa9e693" />
   </p> 
+  
+```bash
+/home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.23_14.06.07/reports/synthesis/1-synthesis.AREA_0.stat.rpt
+```
+  <p align="center">
+   <img width="1289" height="809" alt="image" src="https://github.com/user-attachments/assets/e7e83e35-36db-4627-9fd7-77492bb533cb" />
+   <img width="1287" height="807" alt="image" src="https://github.com/user-attachments/assets/023457b0-f9f5-4d99-809c-b2d6a53ab4c0" />
+  </p> 
+
+```bash
+/home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.23_14.06.07/logs/synthesis/2-sta.log
+```
+  <p align="center">   
+   <img width="1291" height="807" alt="image" src="https://github.com/user-attachments/assets/b22ed49a-da49-4f52-b665-85b2c0f03762" />
+   </p> 
 
 ```math
 Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}  
