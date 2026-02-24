@@ -626,7 +626,7 @@ cd ~/Desktop/OpenLane/configuration/
 ```
   <p align="center">
    <img width="715" height="350" alt="image" src="https://github.com/user-attachments/assets/a64d6616-f50b-4728-affe-75fece608cee" />
-   <img width="1284" height="803" alt="image" src="https://github.com/user-attachments/assets/3cd60a0d-7560-4524-8ce2-1f214cec2a15" />
+   <img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/4a01838d-31db-4bc5-9058-21241eb89a38" />
   </p>
 
 ```bash
@@ -637,15 +637,56 @@ The configuration.md file in this directory gives a brief description of the dif
 Order of precedence for the configuration is  
 configurations/&lt;step&gt;.tcl -> config.tcl(inside the design dir) -> &lt;sky130&gt;config.tcl  
 
-
-
 ```bash
 #command to run floorplan
 run_floorplan
 ```
   <p align="center">
-     <img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/67681832-e7c2-49b8-b7c6-6ccc1023acf5" />
+     <img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/7cfc2717-d420-42c1-91ca-d22bbfa075c5" />
   </p>
+
+First run with just the default floorplan.tcl and config.tcl(in design dir). The default value of 50% for FP_CORE_UTIL is overridden in the config.tcl. The result can be checked by opening the config.tcl in runs directory. In my case it is in
+
+
+```bash
+
+cd /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.24_14.30.50
+gvim config.tcl
+
+```
+  <p align="center">
+   <img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/1b71d048-7ef5-4f52-8547-c4a961243584" />
+   <img width="1283" height="803" alt="image" src="https://github.com/user-attachments/assets/cd2b0dc1-b1a2-4530-ad3c-74d6dae65bb9" />
+  </p>
+
+Now add the &lt;sky130&gt;config.tcl (sky130A_sky130_fd_sc_hd_config.tcl)
+<p align="center">
+ <img width="1285" height="803" alt="image" src="https://github.com/user-attachments/assets/9b738d8f-bb62-47e1-aef6-8e7a96ba5f3e" />
+ </p>
+
+**NOTE** : The precedence of the &lt;sky130&gt;config.tcl depends on when it is sourced. To make sure the above mentioned precedence is followed update the config.tcl as shown.  
+
+<p align="center">
+ <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/0cb9e2c9-8660-471d-b255-950afecb9b6e" />
+ <img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/0d2ba3c4-4eac-47c3-bc07-5f5e6191cc1b" />
+ </p>
+
+The def file is in 
+```bash
+/home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.24_14.30.50/results/floorplan/picorv32a.def
+```
+<p align="center">
+ <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/598e208c-30ad-40f0-8563-b8c4f3c7bd23" />
+</p>
+
+ To view using magic use the following command
+ ```bash
+# Enter into the run directory
+cd /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.24_14.30.50
+# Invoke the magic tool
+magic -T ~/.ciel/sky130A/libs.tech/magic/sky130A.tech  lef read tmp/merged.nom.lef results/floorplan/picorv32a.def &
+
+```
 
   ```math
 1000\ Unit\ Distance = 1\ Micron
@@ -681,13 +722,30 @@ Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
  <table align="center">
   <tr>
     <td align="center">
-     <img width="1920" height="935" alt="vsd10" src="https://github.com/user-attachments/assets/f7621886-891f-4ce6-af12-12dcb359f832" />
+     <img width="1288" height="807" alt="image" src="https://github.com/user-attachments/assets/b8142ca4-9289-4308-a827-0e1992d8b83b" />
     </td>
     <td align="center">
-     <img width="1920" height="935" alt="vsd11" src="https://github.com/user-attachments/assets/e905243c-5783-407b-bd84-5e871d7731d0" />
+     <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/7e887a31-8b32-41ec-a4b9-735cdc37d74e" />
     </td>
   </tr>
 </table>
+
+To fit the view to screen press v 
+To select left click and right click to form a bounding box, then press ctrl+z to zoom into selection
+To select a particular object place the mouse pointer on the object and press s. In tkcon window use what command to get the details.
+
+ <table align="center">
+  <tr>
+    <td align="center">
+     <img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/5d2b3fa3-2c5f-4ebc-9980-9ceea9275d65" />
+    </td>
+    <td align="center">
+     <img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/12805c6b-21ad-4b73-b170-35a9efdcb6b5" />
+    </td>
+  </tr>
+</table>
+
+The decap are the de coupling capacitors and the tap cells are used to avoid latchup conditions in CMOS devices. The nwell connected to vdd and substrate to gnd.
 </details>
 
 
