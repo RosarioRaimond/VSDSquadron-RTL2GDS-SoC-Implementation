@@ -618,33 +618,32 @@ The placement of I/O pins depends on the design requirements. In this case all t
 The area where the pins are placed has to be blocked for the automated place and route tool hence a logical cell placement blockage is inserted in this area.
 
 **Lab2**  
-In the below directory, there are config.tcl files for each step. This is like the default setting that will be used if any configuration is not specified for any particular step.
+In the below directory, there are config.tcl files for each step. This is like the default setting that will be used if any configuration is not specified for any particular step.  
 
 ```bash
-cd ~/Desktop/work/tools/openlane_working_dir/openlane/configurations
+cd ~/Desktop/OpenLane/configuration/
+```
+  <p align="center">
+   <img width="715" height="350" alt="image" src="https://github.com/user-attachments/assets/a64d6616-f50b-4728-affe-75fece608cee" />
+   <img width="1284" height="803" alt="image" src="https://github.com/user-attachments/assets/3cd60a0d-7560-4524-8ce2-1f214cec2a15" />
+  </p>
+
+```bash
+less ~/Desktop/OpenLane/docs/source/reference/configuration.md
 ```
 
-The README file in this directory gives a brief description of the different types of options/switches available like FP_CORE_UTIL(sets the core utilization, 50% by default).  
+The configuration.md file in this directory gives a brief description of the different types of options/switches available like FP_CORE_UTIL(sets the core utilization, 50% by default).  
 Order of precedence for the configuration is  
 configurations/&lt;step&gt;.tcl -> config.tcl(inside the design dir) -> &lt;sky130&gt;config.tcl  
+
+
 
 ```bash
 #command to run floorplan
 run_floorplan
 ```
-  <table align="center">
-  <tr>
-    <td align="center">
-     <img width="1920" height="935" alt="vsd7" src="https://github.com/user-attachments/assets/2c893d0f-bc5c-474a-8739-967d6d357c84" />
-    </td>
-    <td align="center">
-    <img width="1920" height="935" alt="vsd8" src="https://github.com/user-attachments/assets/7d52a46f-6c0d-411a-b032-1a284e2a8ff4" />
-    </td>
-  </tr>
-</table>
-
   <p align="center">
-   <img width="1920" height="935" alt="vsd9" src="https://github.com/user-attachments/assets/638eb22d-176d-43b1-887a-8b7184b72dec" />
+     <img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/67681832-e7c2-49b8-b7c6-6ccc1023acf5" />
   </p>
 
   ```math
