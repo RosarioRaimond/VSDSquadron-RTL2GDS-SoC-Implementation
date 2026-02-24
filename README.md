@@ -68,12 +68,12 @@ They are distributed under NDA, made difficult for mass production. Google partn
   </p>
 The 6%, which amounts to 4.7B annual revenue. In terms of performance, the following examples will convince you!!
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/0512edec-7c5e-49c4-bbb1-2c03d4010331" width="400" />
+    <img width="975" height="710" alt="image" src="https://github.com/user-attachments/assets/3bce6050-9f09-48e4-b64e-cc0a220a73b6" />
   </p>
   
 **Simplified ASIC design flow**
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/a389d061-817a-4f9d-9d52-58e159bb4bd9" width="600" />
+    <img width="975" height="623" alt="image" src="https://github.com/user-attachments/assets/0e45bb88-cb65-4b45-9efc-b897a53f6409" />
   </p>
   
 ***Synthesis :*** Design RTL is converted to circuit made out elements from standard cell library. The resultant circuit is described in HDL and usually referred to as the gate level netlist. A gate level netlist Is functionally equivalent to the RTL.  
@@ -81,47 +81,47 @@ The library building blocks for the cells have regular layouts typically the cel
 -	Electrical (liberty format; delay, power models), HDL (behavioral), SPICE(cdl),
 -	Layout (Abstract(lef) and detailed(gdsii))
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/d0a528bb-d2c8-49f6-b613-043f60be7bd2" width="500" />
+    <img width="384" height="255" alt="image" src="https://github.com/user-attachments/assets/87457edf-6acc-40a4-8194-315a4910f85d" />
   </p>
   
 ***Floor and Power planning :*** Depends on whether a macro or entire chip. The objective is to plan Silicon area and create robust power distribution network to power the circuit.  
 Chip floor planning: Partition the chip die into different system building blocks and place the I/O pads.  
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/23c4156d-25e7-47b4-bdbd-b5e42d09306b" width="700" />
+    <img width="975" height="269" alt="image" src="https://github.com/user-attachments/assets/4f093a49-9775-4bb9-a264-bbe09d810d54" />
   </p>
 Macro Floor planning: Dimensions, pin locations, row definitions  
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/08e4c394-7272-48b8-b7a5-0af977cd1ef4" width="400" />
+    <img width="645" height="500" alt="image" src="https://github.com/user-attachments/assets/25f2feba-3c56-4d25-bce3-cbc578ad0bcd" />
   </p>
   
 ***Power planning***
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/9c0dbb16-c8ac-4d28-8bbd-73a5a6ceeded" width="700" />
+    <img width="975" height="398" alt="image" src="https://github.com/user-attachments/assets/3a405bf7-b3fe-4086-9840-933b1bfba65a" />
   </p>
 Uses upper metal layers as they are thicker than lower metal layers hence have lower resistance.  
 
 ***Placement :*** Place the cells on the floorplan rows aligned with the sites. In 2 types; global and detailed. Finds optimal position for the cells May not be legal. The positions are legalized by making minor adjustments  to the position of the cells.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/0abc6ab1-dc3a-4682-b8af-68870e81d7b7" width="700" />
+    <img width="975" height="332" alt="image" src="https://github.com/user-attachments/assets/679d4dae-dcdb-4836-97b1-d20eb722f29a" />
   </p>
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/4d74bf75-38af-41f1-ba3c-a41e592372d0" width="700" />
+    <img width="975" height="424" alt="image" src="https://github.com/user-attachments/assets/3924584f-3c7c-47db-9396-9a55103a6c40" />
   </p>
   
-***lock Tree synthesis :***
+***Clock Tree synthesis :***
 Create a clock distribution network
 -	To deliver the clock to all sequential elements (e.g., FF).
 -	With minimum skew (zero is hard to achieve).
 -	And in good shape
 -	Usually a Tree (H, X, …).
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/cf8cc3b3-7155-48b2-86db-2cdc239f3b3d" width="400" />
+    <img width="330" height="255" alt="image" src="https://github.com/user-attachments/assets/2899e645-4216-4e91-badc-3c4178ffaec1" />
   </p>
 
 ***Routing :***
 Implement the interconnect using the available metal layers, the PDK defines the thickness pitch, tracks and the minimum width.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/3b747a06-deee-4f07-9fee-5633242501e6" width="700" />
+    <img width="975" height="368" alt="image" src="https://github.com/user-attachments/assets/f993e50c-d79a-46c6-9a85-b486892751e8" />
   </p>
   
 Skywater130 :
@@ -149,7 +149,7 @@ Open lane is a reference ASIC flow by efabless public repo on github. Started as
 striVe si a family of open everything SoCs
 -	Open PDK, Open EDA, Open RTL
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/e0aa7596-5719-4460-bdef-64bda9d8f657" width="700" />
+    <img width="816" height="612" alt="image" src="https://github.com/user-attachments/assets/4ce0e34e-08e9-436e-aa76-2d165950073d" />
   </p>
   
 **Main goal of OpenLane:**
@@ -173,7 +173,7 @@ striVe si a family of open everything SoCs
 
 **Open lane ASIC design flow:**
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/d010effc-3531-428e-a6ae-88a7d2265748" width="700" />
+    <img width="975" height="599" alt="image" src="https://github.com/user-attachments/assets/6a0eab63-b6dc-4dd0-b426-14fe5c6a0bc7" />
   </p>
   
 The flow starts with the design RTL and ends with the final layout in the GDSII format. To function it  needs the PDK. Open lane is based on several open source projects such as openRoad Yosys, ABC, QFlow, Fault, etc.  
@@ -182,13 +182,13 @@ The flow starts with the design RTL and ends with the final layout in the GDSII 
 
 Also openlane has design exploration utilities which can be used to sweep the design configurations and generates a report, which shows design metrics 
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/9370cd07-6a8f-442c-9ed9-e713d4118fc9" width="700" />
+    <img width="975" height="533" alt="image" src="https://github.com/user-attachments/assets/3a7596ea-64dd-487f-8715-c5e69a2e2efe" />
   </p>
 
 The design exploration utility is also used for regression testing(CI)
 We run openlane on ~70 designs and compare the results to the best known ones  
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/9587a278-7c1d-428a-80ab-d4d7e984c997" width="400" />
+    <img width="550" height="598" alt="image" src="https://github.com/user-attachments/assets/6e1f63fc-bcd9-4eed-a74e-f90c44211dae" />
   </p> 
   
 **Design for Testing :** After synthesis comes the testing structure insertion, if we want our design to be ready for  testing after fabrication  we can enable this step which is optional. This step uses opensource project fault to perform 
@@ -198,7 +198,7 @@ We run openlane on ~70 designs and compare the results to the best known ones
 -	Fault Coverage
 -	Fault Simulation
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/d8e67882-5d3d-4372-8649-3d411676f05d" width="700" />
+    <img width="975" height="384" alt="image" src="https://github.com/user-attachments/assets/05176a08-b02b-4c46-bd0d-29c2d5b1fdbd" />
   </p> 
   
 Adds extra logic, scan chain and data controller- access to scan chain  
@@ -222,7 +222,8 @@ When a metal wire segment is fabricated, it can act as an antenna
 -	Reactive ion etching causes charge to accumulate on the wire
 -	Transistor gates can be damaged during the fabrication process.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/1bca6465-139a-4da4-85be-13713941ba8e" width="500" />
+    <img width="654" height="326" alt="image" src="https://github.com/user-attachments/assets/45758b39-f8bb-4add-8595-b3907f7c878a" />
+
   </p> 
 
 Two solutions:
@@ -231,10 +232,10 @@ Two solutions:
 -	Add antenna diode cell to leak away charges 
   - Antenna diodes are provided by the SCL.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/7d32d847-8396-481f-89a8-9fa4c2b1c5a8" width="600" />
+    <img width="975" height="398" alt="image" src="https://github.com/user-attachments/assets/35d9b2cb-45e9-4746-a8e2-abf4d7cef7bf" />
   </p> 
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/7b556867-3538-4233-85f2-c857cc1a7f92" width="600" />
+    <img width="975" height="264" alt="image" src="https://github.com/user-attachments/assets/177b067d-8afc-4538-b94a-8f963dc726b0" />
   </p> 
 
 We took a preventive approach
@@ -243,7 +244,7 @@ We took a preventive approach
 -	If the checker reports a violation on the cell input pin, replace the Fake diode cell by a real one.
 Openlane has a configuration to select one of the two approaches to handle the antenna violations.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/cb27ab3e-be0b-42a0-bd16-5f75802f8496" width="500" />
+    <img width="356" height="348" alt="image" src="https://github.com/user-attachments/assets/98251fd4-9d1c-480e-a44e-f1983ccac7e7" />
   </p> 
   
 **Signoff :** STA, DRC, LVS
