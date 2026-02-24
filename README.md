@@ -64,7 +64,7 @@ PDK(Process Design Kit), is the interface b/w the FAB and the designers. Collect
 - I/O Libraries  
 They are distributed under NDA, made difficult for mass production. Google partnered with skywater and release open source PDK skywater130. This is 130nm process, it may seem old/irrelevant but most applications don't need the advanced nodes due to high cost of production. The market share is as shown below.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/0c55c202-e8a8-477b-b134-d14bd5a03243" width="400" />
+    <img width="839" height="538" alt="image" src="https://github.com/user-attachments/assets/0b0cd504-3875-4e8f-8eef-36fc215679b4" />
   </p>
 The 6%, which amounts to 4.7B annual revenue. In terms of performance, the following examples will convince you!!
   <p align="center">
