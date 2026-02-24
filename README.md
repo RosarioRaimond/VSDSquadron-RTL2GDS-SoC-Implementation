@@ -429,7 +429,7 @@ Percentage\ of\ DFF's = Flop\ Ratio * 100
  
  **Defining width and height of core and die**  
    <p align="center">
-    <img src="https://github.com/user-attachments/assets/494732a5-2e6c-4eee-bc99-8e373c45f20c" width="700" />
+    <img width="835" height="262" alt="image" src="https://github.com/user-attachments/assets/2f3437c1-86ec-4346-b26a-9a5045d8e8ec" />
   </p> 
 
 FF - Flip Flops/Latches/Registers  
@@ -438,7 +438,7 @@ Consider a netlist with 2 flops and 2 AND gates, with above shown connections. (
 Assuming a dimension of 1u x 1u, the cell will have an area of 1 sq. u. The minimum area occupied by the netlist will the total area of all the cells (wire lenght is excluded).
 
    <p align="center">
-    <img src="https://github.com/user-attachments/assets/e234f2ac-08d6-4c8f-8509-6a4288e88ea3" width="500" />
+    <img width="764" height="460" alt="image" src="https://github.com/user-attachments/assets/edb761ef-edda-445e-9421-8e1ffb5b3158" />
   </p>
 
   Rearranging the cells as shown in the below picture we get a total area of 4sq. units.  
@@ -449,10 +449,10 @@ Assuming a dimension of 1u x 1u, the cell will have an area of 1 sq. u. The mini
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/d3a092a3-f599-4677-8d75-5de02c4c2f40" width="300"/>
+      <img width="351" height="274" alt="image" src="https://github.com/user-attachments/assets/e95f8c65-deb8-49a0-b085-4fa90c024448" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/fe1ef751-9bc3-4caa-b7cb-976619f6cf10" width="300"/>
+      <img width="311" height="265" alt="image" src="https://github.com/user-attachments/assets/d3d41a73-76ad-4380-9f4d-5432e9b862be" />
     </td>
   </tr>
 </table>
@@ -474,7 +474,7 @@ Aspect\ Ratio = \frac{Height}{Width}
 ```
 <br> </br>
    <p align="center">
-    <img src="https://github.com/user-attachments/assets/5d2e276f-f793-4fad-bc93-1e5ef5630793" width="500" />
+    <img width="1638" height="971" alt="image" src="https://github.com/user-attachments/assets/9406b910-0b3a-4eb3-8433-1924ec3928b9" />
   </p>
 
 ```math
@@ -500,16 +500,16 @@ In the combinational circuit we can again split to blocks as shown below. The tw
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/c5f03532-9716-4f21-b70e-5b48abd679af" width="350"/>
+      <img width="423" height="220" alt="image" src="https://github.com/user-attachments/assets/c63c4739-c38f-496f-bae7-941796dab48e" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/179283ba-de18-4f2b-ac39-6156b092c88a" width="350"/>
+      <img width="270" height="216" alt="image" src="https://github.com/user-attachments/assets/776acfca-068a-4fd0-b925-048194499c74" />
     </td>
   </tr>
 </table>
 
    <p align="center">
-    <img src="https://github.com/user-attachments/assets/7da8674f-99be-40c4-a7da-efabcb8500b9" width="500" />
+    <img width="548" height="267" alt="image" src="https://github.com/user-attachments/assets/e22eac79-8a33-4bd1-9393-c2a7674b2cec" />
   </p>
 
 There are IP’s available for eg. Memory, Clock-gating cell, comparator, Mux
@@ -520,7 +520,7 @@ There are IP’s available for eg. Memory, Clock-gating cell, comparator, Mux
 The location of the preplaced cells are decided by the design scenario, let’s say a block has most of the connections with input ports, then the block is placed closer to the input ports. Similarly, the design background/summary will decide the location of the pre-placed cells. These pre-placed cells once placed are not touched during rest of the flow, so the locations have to be decided carefully.
 
    <p align="center">
-    <img src="https://github.com/user-attachments/assets/944cfdab-f9b5-441a-ae8f-288f9e0c26c8" width="500" />
+    <img width="604" height="385" alt="image" src="https://github.com/user-attachments/assets/1741a926-3d41-4f61-98f9-ad2dd9e8e258" />
   </p>
 
 **Surround pre-placed with decoupling capacitors**  
@@ -528,16 +528,16 @@ The location of the preplaced cells are decided by the design scenario, let’s 
 Consider the amount of switching current required for a complex circuit something like below:  
 
    <p align="center">
-    <img src="https://github.com/user-attachments/assets/0950a219-5a81-4309-bc58-fee414ceee00" width="500" />
+    <img width="975" height="452" alt="image" src="https://github.com/user-attachments/assets/c3b045a9-3737-496d-bd7c-629804a50099" />
   </p>
 
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/0202ac38-864b-47b6-b666-00cef07e9f8b" width="350"/>
+      <img width="511" height="233" alt="image" src="https://github.com/user-attachments/assets/0f2b1fc4-25aa-4802-9ee5-d2bb9bdf1673" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/1b725a8d-2178-4986-bd7e-99160eda681e" width="350"/>
+      <img width="426" height="232" alt="image" src="https://github.com/user-attachments/assets/2878e4fb-6166-49ef-8a47-98213bf6b717" />
     </td>
   </tr>
 </table>
@@ -545,10 +545,10 @@ Consider the amount of switching current required for a complex circuit somethin
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/e815ced8-5154-4eac-bc51-6a88df52a985" width="350"/>
+      <img width="500" height="265" alt="image" src="https://github.com/user-attachments/assets/730b0fd6-2c4d-40ae-817e-2a56ff25f018" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/1279009b-f499-47a6-8a7a-7d276af3c146" width="350"/>
+      <img width="467" height="360" alt="image" src="https://github.com/user-attachments/assets/969deab2-dadd-4bf9-806d-84d9765df434" />
     </td>
   </tr>
 </table>
@@ -562,26 +562,26 @@ We have taken care of the local communication. Now we have to solve the global c
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/675ac3cd-bb8a-4dce-a7ba-c915390b575d" width="350"/>
+      <img width="356" height="259" alt="image" src="https://github.com/user-attachments/assets/af9d85a1-2744-4126-a299-9f0138884f6a" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/6cbfd7c6-74cf-4e86-8e16-0daa802fca5d" width="350"/>
+      <img width="349" height="259" alt="image" src="https://github.com/user-attachments/assets/344d78fc-c8a5-4af0-b0b6-22bab52687d5" />
     </td>
   </tr>
 </table>
 
 Consider the initial state of the 16-bit bus connected through an inverter.  
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/585e79cb-10c8-413e-be9f-c360c4f2d04d" width="500" />
+    <img width="510" height="288" alt="image" src="https://github.com/user-attachments/assets/6a85ac66-9858-44dc-a019-d3bb9014a4c1" />
   </p>
 All the capacitor charged to V volts have to discharge to 0 volts through single ground tap point. This will cause a bump in ground tap point called the ground debounce. If this bounce exceeds the noise margin then the signal enters the undefined state.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/ef9b3129-aa4a-41cb-b4c4-44214c247933" width="500" />
+    <img width="975" height="254" alt="image" src="https://github.com/user-attachments/assets/369c0254-e86a-4402-81ec-12dd456fe829" />
   </p>
 All the capacitor charged to 0 volts have to charge to V volts through single Vdd tap point. This will cause lowering of voltage at Vdd tap point called the Voltage droop.    
 
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/b575a1c5-b02a-4798-bf3e-f53e78bc82f6" width="500" />
+    <img width="975" height="230" alt="image" src="https://github.com/user-attachments/assets/b02b73cf-f92c-42ec-b22d-dab7e99f981b" />
   </p>
 
 The cause of this problem is that the the supply is coming from a single point. If there were power supply all over the place then they would've satisfied the requirement. This problem is solved by adding multiple vdd and vss supplies. To achieve this a mesh like structure is created for the vdd and vss lines so that any cell or macro requiring the supply can get it from the nearest tap points. the tap points are the intersetion points on the mesh structure. This is called ***Power Planning***.
@@ -589,10 +589,10 @@ The cause of this problem is that the the supply is coming from a single point. 
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/518ab0a1-ebee-48b8-85d9-3df80adf8f3e" width="400" />
+      <img width="462" height="358" alt="image" src="https://github.com/user-attachments/assets/9422c952-328a-4e5c-91d0-59720349476f" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/89faf0c8-3f8b-4948-b80e-19373a769ea2" width="450" />
+      <img width="464" height="303" alt="image" src="https://github.com/user-attachments/assets/a0eec697-c77c-42f6-8221-013c01fabee9" />
     </td>
   </tr>
 </table>
@@ -600,7 +600,7 @@ The cause of this problem is that the the supply is coming from a single point. 
 **Pin Placement**  
 For example, consider the below design that needs to be implemented.
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/1b42e965-36a9-4ccc-b82a-96de1dfcebfb" width="500" />
+    <img width="714" height="496" alt="image" src="https://github.com/user-attachments/assets/5fccab0b-539a-4336-9067-6e98211781d9" />
   </p>
   
 The placement of I/O pins depends on the design requirements. In this case all the input ports are on the left and all the output pins are on the right. The clock pin drives a large number of cells hence it needs to have least resistance path, which is why the size of the clock pins are large compared to the other pins.  
@@ -608,10 +608,10 @@ The placement of I/O pins depends on the design requirements. In this case all t
   <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/aca7b7e3-7169-447b-84fa-c2dbec77b571" width="450" />
+      <img width="452" height="287" alt="image" src="https://github.com/user-attachments/assets/16215d4c-0738-43b6-8f2d-33814de90ffd" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/6f2ce085-4eaa-44e1-9fe0-74ee02bdf909" width="400" />
+      <img width="389" height="287" alt="image" src="https://github.com/user-attachments/assets/7fc35142-f2ee-4b40-9607-153547c4b536" />
     </td>
   </tr>
 </table>
