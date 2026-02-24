@@ -43,7 +43,7 @@ Requires several elements
 -	EDA Tools
 -	PDK Data
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/c891ef31-b8c7-4926-ae3d-d4d1a58b0619" width="400" />
+    <img width="492" height="409" alt="427110397-c891ef31-b8c7-4926-ae3d-d4d1a58b0619" src="https://github.com/user-attachments/assets/26c3d47c-ac52-433e-8227-be5cc18cb489" />
   </p>
   
 ***Opensource RTL*** – Many opensource IP’s are available online. Some of the websites where they can be found are 
