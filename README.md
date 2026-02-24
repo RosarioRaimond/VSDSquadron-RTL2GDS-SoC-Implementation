@@ -692,22 +692,22 @@ magic -T ~/.ciel/sky130A/libs.tech/magic/sky130A.tech  lef read tmp/merged.nom.l
 1000\ Unit\ Distance = 1\ Micron
 ```
 ```math
-Die\ width\ in\ unit\ distance = 660685 - 0 = 660685
+Die\ width\ in\ unit\ distance = 1279175 - 0 = 1279175
 ```
 ```math
-Die\ height\ in\ unit\ distance = 671405 - 0 = 671405
+Die\ height\ in\ unit\ distance = 1289895 - 0 = 1289895
 ```
 ```math
 Distance\ in\ microns = \frac{Value\ in\ Unit\ Distance}{1000}
 ```
 ```math
-Die\ width\ in\ microns = \frac{660685}{1000} = 660.685\ Microns
+Die\ width\ in\ microns = \frac{1279175}{1000} = 1279.175\ Microns
 ```
 ```math
-Die\ height\ in\ microns = \frac{671405}{1000} = 671.405\ Microns
+Die\ height\ in\ microns = \frac{1289895}{1000} = 1289.895\ Microns
 ```
 ```math
-Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
+Area\ of\ die\ in\ microns = 1279.175 * 1289.895 = 1650001.436625\ Square\ Microns
 ```
 
   
@@ -730,9 +730,9 @@ Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
   </tr>
 </table>
 
-To fit the view to screen press v 
-To select left click and right click to form a bounding box, then press ctrl+z to zoom into selection
-To select a particular object place the mouse pointer on the object and press s. In tkcon window use what command to get the details.
+To fit the view to screen press v.   
+To select left click and right click to form a bounding box, then press ctrl+z to zoom into selection.  
+To select a particular object place the mouse pointer on the object and press s. In tkcon window use what command to get the details.  
 
  <table align="center">
   <tr>
