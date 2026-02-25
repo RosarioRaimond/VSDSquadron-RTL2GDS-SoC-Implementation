@@ -796,6 +796,73 @@ Below images are an examples of paths from a simple design.
  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9eb13ef1-5a8a-447b-aabb-645f86471d5e" />
 </p>
 
+**Lab**  
+To run Static Timing Analysis we need a conf file. An example is shown below.  
+
+```bash
+# I have the file in
+/home/vscode/Desktop/OpenLane/pre_sta.conf
+```
+
+```
+# This line sets the units
+set_cmd_units -time ns -capacitance pF -current mA -voltage V -resistance kOhm -distance um
+
+# This defines the slow library for Setup
+read_liberty -max /home/vscode/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib
+
+# This defines the fast library for Hold
+read_liberty -min /home/vscode/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib
+
+# This is the netlist output from synthesis
+read_verilog /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.02.25_14.44.22/results/synthesis/picorv32a.v
+
+# Link the deisgn to picorv32a
+link_design picorv32a
+
+# Setup the SDC for STA (Can be obtained from the base.sdc in /home/vscode/Desktop/OpenLane/scripts)
+read_sdc /home/vscode/Desktop/OpenLane/designs/picorv32a/src/picorv32a.sdc
+
+# Report the results
+report_checks -path_delay min_max -fields {slew trans net cap input_pin}
+report_tns
+report_wns
+
+```
+
+<p align="center">
+ <img width="1286" height="807" alt="image" src="https://github.com/user-attachments/assets/57718ecc-ef0c-4092-b7b9-aa1be37f5823" />
+ <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/f82ae035-8d31-4e56-bb57-79594e3bc385" />
+</p>
+
+```bash
+
+# Run STA in a new terminal
+cd /home/vscode/Desktop/OpenLane
+
+# Invoke the container
+make mount
+
+#Run STA
+sta pre_sta.conf
+
+```
+
+[pre_sta.rpt](pre_sta.md)  Click to view the report.  
+
+<p align="center">
+ <img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/9b4594ec-8c0e-460d-9b24-cd0de674be73" />
+</p>  
+
+To re-run synthesis with customisation, the config.tcl can be updated or the env variables can be set on the go in the terminal.  
+
+<p align="center">
+ <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/d01d2cb8-ae19-4ce3-8254-164e58d7b73a" />
+ <img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/d8e583cb-d40e-4985-9d77-de41f6d8c475" />
+</p>
+
+
+[pre_sta.rpt](pre_sta.md)  Click to view the report.  
 
 </details>
 <details>
