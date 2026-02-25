@@ -848,7 +848,7 @@ sta pre_sta.conf
 
 ```
 
-[pre_sta.rpt](pre_sta.md)  Click to view the report.  
+[pre_sta.rpt](Assets/pre_sta.rpt)  Click to view the report.  
 
 <p align="center">
  <img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/9b4594ec-8c0e-460d-9b24-cd0de674be73" />
@@ -862,7 +862,7 @@ To re-run synthesis with customisation, the config.tcl can be updated or the env
 </p>
 
 
-[pre_sta.rpt](pre_sta.md)  Click to view the report.  
+[pre_sta.rpt](Assets/pre_sta_up.rpt)  Click to view the report.  
 
 </details>
 <details>
