@@ -830,10 +830,16 @@ report_wns
 
 ```
 
-<p align="center">
- <img width="1286" height="807" alt="image" src="https://github.com/user-attachments/assets/57718ecc-ef0c-4092-b7b9-aa1be37f5823" />
- <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/f82ae035-8d31-4e56-bb57-79594e3bc385" />
-</p>
+ <table align="center">
+  <tr>
+    <td align="center">
+     <img width="1286" height="807" alt="image" src="https://github.com/user-attachments/assets/57718ecc-ef0c-4092-b7b9-aa1be37f5823" />
+    </td>
+    <td align="center">
+     <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/f82ae035-8d31-4e56-bb57-79594e3bc385" />
+    </td>
+  </tr>
+</table>
 
 ```bash
 
@@ -856,15 +862,121 @@ sta pre_sta.conf
 
 To re-run synthesis with customisation, the config.tcl can be updated or the env variables can be set on the go in the terminal.  
 
-<p align="center">
- <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/d01d2cb8-ae19-4ce3-8254-164e58d7b73a" />
- <img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/d8e583cb-d40e-4985-9d77-de41f6d8c475" />
-</p>
-
+ <table align="center">
+  <tr>
+    <td align="center">
+     <img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/d01d2cb8-ae19-4ce3-8254-164e58d7b73a" />
+    </td>
+    <td align="center">
+     <img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/d8e583cb-d40e-4985-9d77-de41f6d8c475" />
+    </td>
+  </tr>
+</table>
 
 [pre_sta.rpt](Assets/pre_sta_up.rpt)  Click to view the report.  
 
+Trying out few experiments to get a netlist with better timing. I will be setting the synthesis options on the go and once I get a decent run, it will be moved to config.tcl  
+
+To set the options on the go, the following example can be used
+
+```bash
+# To view the current value of an option
+echo $::env(SYNTH_STRATEGY)
+echo $::env(SYNTH_SIZING)
+echo $::env(MAX_FANOUT_CONSTRAINT)
+
+# To set the option
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(SYNTH_SIZING) 1
+set ::env(MAX_FANOUT_CONSTRAINT) 4
+```
+
+**Experiment 1**  
+
+```bash
+cd /home/vscode/Desktop/OpenLane
+
+make mount
+
+./flow.tcl -interactive
+
+prep -design picorv32a
+
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(MAX_FANOUT_CONSTRAINT) 4
+set ::env(SYNTH_SIZING) 1
+
+run_synthesis
+
+# Update the pre_sta.conf to point to the new netlist and run STA on a new terminal
+
+cd /home/vscode/Desktop/OpenLane
+
+make mount
+
+sta pre_sta.conf
+```
+<img width="1289" height="806" alt="image" src="https://github.com/user-attachments/assets/5d0736e5-d84e-4f50-990f-ea465dcf7093" />
+<img width="1284" height="803" alt="image" src="https://github.com/user-attachments/assets/13e47105-f99f-4d2c-bd1a-7ca01fa0a706" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/c7c06aeb-b3be-44b3-86b3-13c10cafd2bd" />
+<img width="1287" height="807" alt="image" src="https://github.com/user-attachments/assets/c1c06145-14e9-493c-b081-85438b892780" />
+<img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/3b1b106b-65e0-404c-b6a9-5054e0a4acde" />
+
+
+
+**Experiment 2**  
+Synthesis can be re-run by removing the netlist or fresh run can be done. I'm removing and rerunning
+```bash
+set ::env(SYNTH_STRATEGY) "DELAY 2"
+
+run_synthesis
+
+# Since the netlist is dumped in the same directory STA can be run with the same conf file by source or re-run
+
+source pre_sta.conf
+```
+
+<img width="1287" height="810" alt="image" src="https://github.com/user-attachments/assets/b68fbf10-2fe5-4e63-8c49-29cd0bbd97d0" />
+<img width="1290" height="807" alt="image" src="https://github.com/user-attachments/assets/7afbdcc7-4c6e-4c4d-89ce-9588828b1ac1" />
+<img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/d91b38ee-4043-4872-a59f-c4df80e5eae0" />
+<img width="1287" height="806" alt="image" src="https://github.com/user-attachments/assets/9b411bd3-18dd-4cbb-85c0-dc496ebc9ab7" />
+
+**Experiment 3**  
+Synthesis can be re-run by removing the netlist or fresh run can be done. I'm removing and rerunning
+```bash
+set ::env(MAX_FANOUT_CONSTRAINT) 3
+
+run_synthesis
+```
+<img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/13774e8b-6700-4aad-85e5-8914e1d43a1a" />
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/4f5b826b-e386-4404-8f85-1a514ee1f36f" />
+
+**Experiment 4**  
+Synthesis can be re-run by removing the netlist or fresh run can be done. I'm removing and rerunning
+```bash
+set ::env(SYNTH_STRATEGY) "DELAY 1"
+set ::env(MAX_FANOUT_CONSTRAINT) 4
+
+run_synthesis
+```
+<img width="1283" height="805" alt="image" src="https://github.com/user-attachments/assets/97fd4460-46eb-4735-b91e-681b90a2b832" />
+<img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/e5cb7546-f84f-4a9a-865f-85a4cc00816c" />
+
+The other way to improve timing is by increasing the drive strength of high fanout cells.
+
+The sta report from experiment 4 has multiple buffers driving multiple loads. Increasing the drive strength reduces the slew and hence reducing the delay.
+
+
+
+<img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/918e7bba-7eda-4b2b-9dc3-70cf4ecd870e" />
+<img width="1284" height="805" alt="image" src="https://github.com/user-attachments/assets/34593997-feba-44ae-a71d-b4b4681ca3cb" />
+<img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/7720a7f4-5c7d-4e7d-8e82-24362abff2c5" />
+<img width="1284" height="806" alt="image" src="https://github.com/user-attachments/assets/0ce8f9c6-e3bc-41d3-8524-235276db3ae4" />
+
+
+
 </details>
+
 <details>
  <summary><b>Phase 4 - CTS and Timing with Real Clocks (bridges directly to Week 4–6)</b></summary>
 </details>
