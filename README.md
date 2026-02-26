@@ -937,7 +937,7 @@ run_synthesis
 
 source pre_sta.conf
 ```
-[pre_sta.rpt](Assets/pre_sta_STRAT_D2_FANOUT_3.rpt)  Click to view the report.  
+[pre_sta.rpt](Assets/pre_sta_STRAT_D2_FANOUT_4.rpt)  Click to view the report.  
 
 <img width="1287" height="810" alt="image" src="https://github.com/user-attachments/assets/b68fbf10-2fe5-4e63-8c49-29cd0bbd97d0" />
 <img width="1290" height="807" alt="image" src="https://github.com/user-attachments/assets/7afbdcc7-4c6e-4c4d-89ce-9588828b1ac1" />
@@ -952,7 +952,7 @@ set ::env(MAX_FANOUT_CONSTRAINT) 3
 run_synthesis
 ```
 
-[pre_sta.rpt](Assets/pre_sta_STRAT_D3_FANOUT_3.rpt)  Click to view the report.  
+[pre_sta.rpt](Assets/pre_sta_STRAT_D2_FANOUT_3.rpt)  Click to view the report.  
 
 <img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/13774e8b-6700-4aad-85e5-8914e1d43a1a" />
 <img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/4f5b826b-e386-4404-8f85-1a514ee1f36f" />
