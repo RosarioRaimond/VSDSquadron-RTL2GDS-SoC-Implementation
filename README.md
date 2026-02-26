@@ -916,6 +916,8 @@ make mount
 
 sta pre_sta.conf
 ```
+[pre_sta.rpt](Assets/pre_sta_STRAT_D3_FANOUT_4.rpt)  Click to view the report.  
+
 <img width="1289" height="806" alt="image" src="https://github.com/user-attachments/assets/5d0736e5-d84e-4f50-990f-ea465dcf7093" />
 <img width="1284" height="803" alt="image" src="https://github.com/user-attachments/assets/13e47105-f99f-4d2c-bd1a-7ca01fa0a706" />
 <img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/c7c06aeb-b3be-44b3-86b3-13c10cafd2bd" />
@@ -935,6 +937,7 @@ run_synthesis
 
 source pre_sta.conf
 ```
+[pre_sta.rpt](Assets/pre_sta_STRAT_D2_FANOUT_4.rpt)  Click to view the report.  
 
 <img width="1287" height="810" alt="image" src="https://github.com/user-attachments/assets/b68fbf10-2fe5-4e63-8c49-29cd0bbd97d0" />
 <img width="1290" height="807" alt="image" src="https://github.com/user-attachments/assets/7afbdcc7-4c6e-4c4d-89ce-9588828b1ac1" />
@@ -948,6 +951,9 @@ set ::env(MAX_FANOUT_CONSTRAINT) 3
 
 run_synthesis
 ```
+
+[pre_sta.rpt](Assets/pre_sta_STRAT_D3_FANOUT_3.rpt)  Click to view the report.  
+
 <img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/13774e8b-6700-4aad-85e5-8914e1d43a1a" />
 <img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/4f5b826b-e386-4404-8f85-1a514ee1f36f" />
 
@@ -959,13 +965,15 @@ set ::env(MAX_FANOUT_CONSTRAINT) 4
 
 run_synthesis
 ```
+
+[pre_sta.rpt](Assets/pre_sta_STRAT_D1_FANOUT_4.rpt)  Click to view the report.  
+
 <img width="1283" height="805" alt="image" src="https://github.com/user-attachments/assets/97fd4460-46eb-4735-b91e-681b90a2b832" />
 <img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/e5cb7546-f84f-4a9a-865f-85a4cc00816c" />
 
-The other way to improve timing is by increasing the drive strength of high fanout cells.
+The other way to improve timing is by increasing the drive strength of high fanout cells.  
 
-The sta report from experiment 4 has multiple buffers driving multiple loads. Increasing the drive strength reduces the slew and hence reducing the delay.
-
+The sta report from experiment 4 has multiple buffers driving multiple loads. Increasing the drive strength reduces the slew and hence reducing the delay.  
 
 
 <img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/918e7bba-7eda-4b2b-9dc3-70cf4ecd870e" />
