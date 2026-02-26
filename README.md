@@ -937,7 +937,7 @@ run_synthesis
 
 source pre_sta.conf
 ```
-[pre_sta.rpt](Assets/pre_sta_STRAT_D2_FANOUT_4.rpt)  Click to view the report.  
+[pre_sta.rpt](Assets/pre_sta_STRAT_D2_FANOUT_3.rpt)  Click to view the report.  
 
 <img width="1287" height="810" alt="image" src="https://github.com/user-attachments/assets/b68fbf10-2fe5-4e63-8c49-29cd0bbd97d0" />
 <img width="1290" height="807" alt="image" src="https://github.com/user-attachments/assets/7afbdcc7-4c6e-4c4d-89ce-9588828b1ac1" />
