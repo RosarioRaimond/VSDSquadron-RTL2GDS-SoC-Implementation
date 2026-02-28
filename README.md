@@ -981,15 +981,223 @@ The sta report from experiment 4 has multiple buffers driving multiple loads. In
 <img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/7720a7f4-5c7d-4e7d-8e82-24362abff2c5" />
 <img width="1284" height="806" alt="image" src="https://github.com/user-attachments/assets/0ce8f9c6-e3bc-41d3-8524-235276db3ae4" />
 
-
-
 </details>
 
 <details>
- <summary><b>Phase 4 - CTS and Timing with Real Clocks (bridges directly to Week 4–6)</b></summary>
+ <summary><b>Phase 4 - CTS and Timing with Real Clocks (bridges directly to Week 4–6)</b></summary>   
+
+     
+ ***Clock tree synthesis***   
+ From the connectivity information we connect the clocks as shown in the figure below.  
+ 
+ <p align="center">
+  <img width="651" height="321" alt="image" src="https://github.com/user-attachments/assets/f135f008-e519-43e9-aed1-f74f337953ec" />
+ </p>   
+ 
+Taking out a section of the above circuit, we analyse the path. **t2** is the time take byt the clock to reach FF2 and **t1** is the time taken by clock to reach FF1. Because the length of both the wires is different, the clock does not arrive at the flip flops at the same time. This time difference is called clock skew. This value must be minimized(close to zero).
+
+```
+Skew = t2 - t1 = ~0
+```
+ 
+<p align="center">
+ <img width="654" height="323" alt="image" src="https://github.com/user-attachments/assets/04e572b6-d79d-4a70-98d1-6a807822ef52" />
+</p>
+ This clock tree is not a good tree.  
+
+ A better way would be use something called as H-tree. The midpoint of all the flops to be connected is found and the source is routed to that point and from there the clock is distributed to all the flops. This ensures that the clock reaches all the flops at approximately same time.
+
+ <table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/10523e88-eb61-4bec-b722-3625de1b30d6" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e2d2b754-92bb-439d-aa58-f148a1146b12" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0486b82a-bb4a-4086-ac80-19f8a7f23683" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5295f517-53c1-4b33-a513-82b2cc7e69d3" />
+    </td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/64e7c2b5-6fa9-4e1a-b491-1aacf99fb0e7" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e29ca4ff-33d9-4e9d-9ecf-8219812d2660" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6b301e88-b710-4242-bbaa-e4db973de43e" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bb931626-64bb-486c-b2af-28006d6caff3" />
+    </td>
+  </tr>
+</table>
+
+***Clock Tree Buffering***  
+Since the length of the clock net has increased, the parasitic resistance and capacitance have increased. This deteriorates the signal (transition time increases), as a result the signal reaching the flop might not be the same as the input.  
+
+<p align="center">
+ <img width="1332" height="770" alt="image" src="https://github.com/user-attachments/assets/ef1668ae-8a8c-4400-9d08-1a1e59c32c1a" />
+</p>
+
+To solve this buffers are added. The buffers used in CTS are called clock buffers, the difference between clock buffer and a normal buffer is that the former has equal rise and fall times.
+
+<table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5065368c-420f-43ad-95b4-1690b0ff946f" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2b5d2d52-db59-431b-ad58-cfd9dcf81ddc" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5bd24aa8-9d63-4af8-81c5-3da858486a97" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/88fa40ac-8c53-4271-9c85-dc252e2274b9" />
+    </td>
+  </tr>
+ <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a9371367-96e5-45fa-af47-da6a026aa105" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9fa9ec78-d545-4c07-ad79-d63a18677e9d" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2f90db3-44b7-4422-b923-bc7ea6e0f827" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2f90db3-44b7-4422-b923-bc7ea6e0f827" />
+    </td>
+  </tr> 
+</table>
+
+***Clock Net Shielding***  
+ **Cross Talk :**   Crosstalk in physical design is an unwanted signal coupling happens between two or more signal which are very close to each other. Crosstalk causes interference in signal because of which signal integrity of the signal gets hampered.
+
+ To prevent crosstalks on clock nets, they are shielded. Shielding is nothing but a net of vss or vdd on either sides of a signal as shown below.  
+
+ <p align="center">
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/60737637-4695-4d54-a418-09bfceb749ae" />
+ </p>
+
+ **Effects of Cross Talk**
+ - Glitch
+ - Delta Delay
+
+**Glitch**
+
+When there are two nets close to each other they form a capacitor and this is called coupling capacitance. Any change in one signal affects the signal in the other net. The net causing the effect is called aggressor and the net affected by it is called victim. In the figure below one such scenario is shown where the reset signal to a memory is suffering crosstalk. During the transisiton on the aggressor, the voltage on the reset net is pulled down for a brief period(*called glitch*) causing a false reset, therby clearing the contents of the memory which leads to the failure of the system.
+
+<img width="976" height="545" alt="image" src="https://github.com/user-attachments/assets/57522b91-a7ef-4218-b745-601d928c35f2" />
+
+
+**Delta Delay**  
+If both aggressor and the victim are swithcing at the same time, then the switching in the victim is delayed by a finite time, called delta delay. An example is as shown below.
+   
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4fec76df-d232-4e65-bace-139790007fa0" />
+
+The idea of shielding is that, if the net near the critical signal is not switching then there is no crosstalk and vss/vdd do not change. Even critical data signals are also shielded. It is not feasible to shield all the nets, as it takes up most of the routing resources.
+
+After performing the ECO's to fix the timing we need to write out the updated netlist. If the openlane flow has to take up the new netlist then the netlist in the synthesis directory has to overwritten with the ECO netlist.  
+
+```bash
+
+#In open STA use the following command
+write_verilog <filename>
+write_verilog
+
+```
+<img width="1284" height="805" alt="image" src="https://github.com/user-attachments/assets/04d091af-3bbb-44c7-9a3e-c955d13547eb" />
+<img width="1286" height="806" alt="image" src="https://github.com/user-attachments/assets/0e18ecd0-e898-4d8b-ae1a-e63f8a0db70b" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/7272debd-43f2-416f-88c7-45b23f953ed7" />
+<img width="1287" height="807" alt="image" src="https://github.com/user-attachments/assets/9f458e61-4c93-4ece-8113-49a0ed66ea5c" />
+<img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/6af817c5-0966-4aa4-adcf-24cfd79824ee" />
+<img width="1286" height="803" alt="image" src="https://github.com/user-attachments/assets/ad93e661-84d9-43eb-b6a6-27097b13dcef" />
+
+```bash
+
+# In the openlane flow continue to run the floorplan
+run_floorplan
+
+# Run placement
+run_placement
+
+# Run CTS
+run_cts
+
+```
+<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/3498ac2b-a13b-4d1e-ae64-e57e24374cc6" />
+<img width="1285" height="803" alt="image" src="https://github.com/user-attachments/assets/62c43b96-52e1-4614-ac87-49e358ff306a" />
+<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/7bbb830e-d88a-41d5-924e-c4c305fc1e88" />
+
+
+**Overview of the commands in openlane**
+
+TCL procs are similar to functions in other programming languages. The commands run so far are nothing but tcl procs. Let's explore the run_cts proc.  
+The file is present in 
+```
+/home/vscode/Desktop/OpenLane/scripts/tcl_commands
+```
+
+<p align="center">
+ <img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/d7bb563e-86fd-491f-99cd-b55e0f5df2a4" />
+ <img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/6dfe865f-7c4b-4da8-8b3d-e8ec1b5edfc0" />
+ <img width="1283" height="803" alt="image" src="https://github.com/user-attachments/assets/ff3d0dc3-ba83-496a-9b66-8949f4b0fdde" />
+ <img width="1283" height="803" alt="image" src="https://github.com/user-attachments/assets/c97d7bd7-81ce-4786-aa89-f8d3c0729c8b" />
+</p>
+
+
+
+### Timing analysis with real clocks using openSTA
+
+So far the timing analysis was done assuming the clocks were ideal (i.e, the clocks reached all flops at the same time), but we now know that with clock tree synthesis the clock arriving at the flop is delayed by the clock net and clock buffer delay.
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c758ca31-22f9-4796-9858-a69eb4d5d22a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e86bc4b8-88e5-482e-b41e-bbf02f3f25a1" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bbbb5c4b-ab92-40d0-930a-7786e9c2ebf4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c4d53810-10c5-4b87-a931-193e9a9a3c17" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1a47d9d6-a95f-43ce-bb0a-018f64d0f368" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5d04dd97-4639-435c-84b2-1a2cfc0a79cc" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eee5bbc2-926b-4567-a2ce-3a0451041d80" />
+
+***Hold Timing Analysis***
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1534dfe3-9fd5-48d2-a7f2-6b205f64a187" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/44ee045c-0e25-453a-b089-3779b726e9cd" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ea7a0a8e-5414-4abd-8fd3-335c87b7c563" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/36ab41b6-927d-4c14-ac34-2f614c5539f2" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0384912-8ec1-4219-96d7-dafcea982534" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/82f518a0-1bb9-468e-a04e-11114add71bb" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/89c9f720-c364-4ab6-a6e6-04b0ec3bb744" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dd3ba491-804b-43af-a9d1-5da0a2c8c6a0" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8315b136-cbb5-4606-973b-da3550a46342" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c325f402-80a6-433a-bc88-b4855658c193" />
+
 </details>
+
 <details>
  <summary><b>Phase 5 - PDN Awareness (required vocabulary for ORFS and signoff thinking)</b></summary>
+ 
 </details>
 
 ## Week 2
