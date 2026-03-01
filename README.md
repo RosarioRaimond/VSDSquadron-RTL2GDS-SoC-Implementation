@@ -1168,31 +1168,175 @@ The file is present in
 
 ### Timing analysis with real clocks using openSTA
 
-So far the timing analysis was done assuming the clocks were ideal (i.e, the clocks reached all flops at the same time), but we now know that with clock tree synthesis the clock arriving at the flop is delayed by the clock net and clock buffer delay.
+So far the timing analysis was done assuming the clocks were ideal (i.e, the clocks reached all flops at the same time), but we now know that with clock tree synthesis the clock arriving at the flop is delayed by the clock net and clock buffer delay. So the inital equation 
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c758ca31-22f9-4796-9858-a69eb4d5d22a" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e86bc4b8-88e5-482e-b41e-bbf02f3f25a1" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bbbb5c4b-ab92-40d0-930a-7786e9c2ebf4" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c4d53810-10c5-4b87-a931-193e9a9a3c17" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1a47d9d6-a95f-43ce-bb0a-018f64d0f368" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5d04dd97-4639-435c-84b2-1a2cfc0a79cc" />
+```
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eee5bbc2-926b-4567-a2ce-3a0451041d80" />
+θ < T
+
+(θ + 1 + 2) < (T + 1 + 3 + 4)
+
+# representing the clock network delay at launch flop as Δ₁ and capture flop as Δ₂
+(θ + Δ₁) < (T + Δ₂)
+
+Skew = |Δ₁ - Δ₂|
+
+# The concept of Setup time and Uncertainty still holds good so the final equation looks like
+(θ + Δ₁) < (T + Δ₂) - S - SU
+
+Data Arrival Time < Data Required Time
+
+Slack = Data Required Time - Data Arrival Time >= 0 (positive slack)
+
+```
+<table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c758ca31-22f9-4796-9858-a69eb4d5d22a" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e86bc4b8-88e5-482e-b41e-bbf02f3f25a1" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bbbb5c4b-ab92-40d0-930a-7786e9c2ebf4" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c4d53810-10c5-4b87-a931-193e9a9a3c17" />
+    </td>
+  </tr>
+ <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1a47d9d6-a95f-43ce-bb0a-018f64d0f368" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5d04dd97-4639-435c-84b2-1a2cfc0a79cc" />
+    </td>
+  </tr>
+  <tr>
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eee5bbc2-926b-4567-a2ce-3a0451041d80" />
+  </tr> 
+</table>
 
 ***Hold Timing Analysis***
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1534dfe3-9fd5-48d2-a7f2-6b205f64a187" />
+Hold time = Minimum time data must not change after the active clock edge.  
+
+```
+
+θ > H
+
+(θ + 1 + 2) > (H + 1 + 3 + 4)
+
+# representing the clock network delay at launch flop as Δ₁ and capture flop as Δ₂
+(θ + Δ₁) > (H + Δ₂)
+
+Skew = |Δ₁ - Δ₂|
+
+# The uncertainty is same for both launch and capture flop since the edge used is same for both(still we use a minimum value)
+# Final equation 
+(θ + Δ₁) > (H + Δ₂ + HU)
+
+Data Arrival Time > Data Required Time(Hold Time)
+
+Slack = Data Arrival Time - Data Required Time >= 0 (positive slack)
+
+```
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/44ee045c-0e25-453a-b089-3779b726e9cd" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ea7a0a8e-5414-4abd-8fd3-335c87b7c563" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/36ab41b6-927d-4c14-ac34-2f614c5539f2" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0384912-8ec1-4219-96d7-dafcea982534" />
+<table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1534dfe3-9fd5-48d2-a7f2-6b205f64a187" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ea7a0a8e-5414-4abd-8fd3-335c87b7c563" />     
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/36ab41b6-927d-4c14-ac34-2f614c5539f2" />     
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0384912-8ec1-4219-96d7-dafcea982534" />     
+    </td>
+  </tr> 
+</table>
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/82f518a0-1bb9-468e-a04e-11114add71bb" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/89c9f720-c364-4ab6-a6e6-04b0ec3bb744" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dd3ba491-804b-43af-a9d1-5da0a2c8c6a0" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8315b136-cbb5-4606-973b-da3550a46342" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c325f402-80a6-433a-bc88-b4855658c193" />
+Finding the paths and the parameters in the equations a design.  
 
+<table align="center">
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/82f518a0-1bb9-468e-a04e-11114add71bb" />
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/89c9f720-c364-4ab6-a6e6-04b0ec3bb744" />     
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8315b136-cbb5-4606-973b-da3550a46342" />     
+    </td>
+    <td align="center">
+     <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c325f402-80a6-433a-bc88-b4855658c193" />
+    </td>
+  </tr> 
+</table>
+
+**Lab steps**
+
+```bash
+
+cd /home/vscode/Desktop/OpenLane
+make mount
+./flow.tcl -interactive
+prep -design picorv32a
+set ::env(SYNTH_SIZING) 1
+set ::env(SYNTH_STRATEGY) "DELAY 2"
+set ::env(MAX_FANOUT_CONSTRAINT) 4
+run_synthesis
+run_floorplan
+run_placement
+run_cts
+write_verilog /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.03.01_14.41.28/results/synthesis/picorv32a_cts.v
+openroad
+read_lef designs/picorv32a/runs/RUN_2026.03.01_14.41.28/tmp/merged.nom.lef
+read_def /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.03.01_14.41.28/results/cts/picorv32a.def
+write_db picorv32a_cts.db
+read_verilog /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.03.01_14.41.28/results/synthesis/picorv32a_cts.v
+read_liberty -max /home/vscode/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib
+read_liberty -min /home/vscode/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib
+link_design picorv32a
+read_sdc /home/vscode/Desktop/OpenLane/designs/picorv32a/src/picorv32a.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pin} -format full_clock_expanded -digits 4
+
+```
+
+<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/7dd3c447-d72d-4a86-a495-c4c7cb278daa" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/29ba6d65-4974-4a26-8360-13d6687e44e0" />
+<img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/936763d2-351b-43ad-b632-11dd76e4f731" />
+<img width="1287" height="805" alt="image" src="https://github.com/user-attachments/assets/2e2a5c43-32a3-4b17-b817-0fd4cba97103" />
+<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/7fb193dc-63b6-43c8-999b-4d5c69c2d6df" />
+
+
+<img width="1284" height="805" alt="image" src="https://github.com/user-attachments/assets/7235194f-39c6-4a14-b309-a2f95aebd82e" />
+<img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/933ff279-ec2b-44f0-a09d-745155baf1df" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/91dfda43-db20-402b-a063-45b3a1f21e9d" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/e68aadae-4fba-4139-b252-e2ce8a7225c6" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/b6abb3f4-d517-41a6-9744-0c3ec5744eb3" />
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/01404125-5a82-48a4-a590-d24859a833ca" />
+
+This report shows that the timing requirements is not met, but the problem is that Triton CTS does not support multicorner mode. The CTS was run with typical library and the STA is run with max and min library, hence the violations are shown.   
+
+```
+exit
+read_db pico_cts.db
+
+
+```
 </details>
 
 <details>
