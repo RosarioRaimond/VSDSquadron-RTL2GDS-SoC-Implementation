@@ -1334,9 +1334,16 @@ This report shows that the timing requirements is not met, but the problem is th
 ```
 exit
 read_db pico_cts.db
-
-
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+read_verilog /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.03.01_18.00.16/results/synthesis/picorv32a_cts.v
+read_sdc /home/vscode/Desktop/OpenLane/designs/picorv32a/src/picorv32a.sdc
+report_checks -path_delay min_max -fields {slew trans net cap input_pin}
 ```
+<img width="1288" height="806" alt="image" src="https://github.com/user-attachments/assets/46eb0f45-4e85-4165-b3b4-a1a61387c868" />
+<img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/8ac09c9a-0692-4d20-bdcc-6e5f3ad3cd44" />
+<img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/b4504612-7c5c-4bee-8ad3-7c7ac3a6fad3" />
+
+
 </details>
 
 <details>
