@@ -1338,16 +1338,50 @@ report_checks -path_delay min_max -fields {slew trans net cap input_pin}
 
 After reading the typical library the reports are as shown. The setup and hold requirements are met.
 
+The clock buffer list can be modified for running CTS.  
+
+```
+echo $::env(CTS_CLK_BUFFER_LIST)
+sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8
+
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8
+
+set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8
+
+# Before running cts make sure the def used is the placement def and cts def
+run_cts
+```
+
+
 </details>
 
 <details>
  <summary><b>Phase 5 - PDN Awareness (required vocabulary for ORFS and signoff thinking)</b></summary>
- 
+
 </details>
 
 ## Week 2
 <details>
- <summary><b>Chip Floor planning considerations</b></summary>
+ <summary><b>Phase 1 - ORFS Execution in GitHub Codespaces</b></summary>
+
+</details>
+<details>
+ <summary><b>Phase 2 - Toolchain Understanding (Devcontainer Deep Dive)</b></summary>
+
+</details>
+<details>
+ <summary><b>Phase 3 - Local Installation (Self-Owned Environment)</b></summary>
+
+</details>
+<details>
+ <summary><b>Phase 4 - Re-Run RTL-to-GDS Locally</b></summary>
+
+</details>
+<details>
+ <summary><b>Phase 5 - Debugging and Unix Literacy</b></summary>
+
 </details>
 
 ## Week 3
