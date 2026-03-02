@@ -1314,22 +1314,15 @@ set_propagated_clock [all_clocks]
 report_checks -path_delay min_max -fields {slew trans net cap input_pin} -format full_clock_expanded -digits 4
 
 ```
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/a9a5450f-d0b5-4628-a811-19268b3743ca" />
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/9119e02e-02d4-4238-9c35-5db19cd31848" />
+<img width="1286" height="803" alt="image" src="https://github.com/user-attachments/assets/d62eabee-bb77-495b-b609-b8158393d340" />
+<img width="1282" height="804" alt="image" src="https://github.com/user-attachments/assets/b48dbb3b-62a6-40e7-a573-33a14cf4aa8a" />
+<img width="1283" height="803" alt="image" src="https://github.com/user-attachments/assets/cb884028-eb01-4b01-b07b-9b336e7f02a5" />
+<img width="1283" height="803" alt="image" src="https://github.com/user-attachments/assets/cc3bf694-f4e2-4858-a74d-07b9acf38340" />
 
-<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/7dd3c447-d72d-4a86-a495-c4c7cb278daa" />
-<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/29ba6d65-4974-4a26-8360-13d6687e44e0" />
-<img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/936763d2-351b-43ad-b632-11dd76e4f731" />
-<img width="1287" height="805" alt="image" src="https://github.com/user-attachments/assets/2e2a5c43-32a3-4b17-b817-0fd4cba97103" />
-<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/7fb193dc-63b6-43c8-999b-4d5c69c2d6df" />
-
-
-<img width="1284" height="805" alt="image" src="https://github.com/user-attachments/assets/7235194f-39c6-4a14-b309-a2f95aebd82e" />
-<img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/933ff279-ec2b-44f0-a09d-745155baf1df" />
-<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/91dfda43-db20-402b-a063-45b3a1f21e9d" />
-<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/e68aadae-4fba-4139-b252-e2ce8a7225c6" />
-<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/b6abb3f4-d517-41a6-9744-0c3ec5744eb3" />
-<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/01404125-5a82-48a4-a590-d24859a833ca" />
-
-This report shows that the timing requirements is not met, but the problem is that Triton CTS does not support multicorner mode. The CTS was run with typical library and the STA is run with max and min library, hence the violations are shown.   
+This report shows that the timing requirements is not met, but the problem is that Triton CTS does not support multicorner mode. The CTS was run with typical library and the STA is run with max and min library, hence the violations are shown. 
+ 
 
 ```
 exit
@@ -1339,10 +1332,11 @@ read_verilog /home/vscode/Desktop/OpenLane/designs/picorv32a/runs/RUN_2026.03.01
 read_sdc /home/vscode/Desktop/OpenLane/designs/picorv32a/src/picorv32a.sdc
 report_checks -path_delay min_max -fields {slew trans net cap input_pin}
 ```
-<img width="1288" height="806" alt="image" src="https://github.com/user-attachments/assets/46eb0f45-4e85-4165-b3b4-a1a61387c868" />
-<img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/8ac09c9a-0692-4d20-bdcc-6e5f3ad3cd44" />
-<img width="1285" height="806" alt="image" src="https://github.com/user-attachments/assets/b4504612-7c5c-4bee-8ad3-7c7ac3a6fad3" />
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/11a77089-2c31-42da-8de0-dca8b68319c3" />
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/68bcd6a7-0b29-4d38-97cf-209e692dd960" />
+<img width="1283" height="802" alt="image" src="https://github.com/user-attachments/assets/4c880a0d-d00e-4307-95e8-729930f72d80" />
 
+After reading the typical library the reports are as shown. The setup and hold requirements are met.
 
 </details>
 
