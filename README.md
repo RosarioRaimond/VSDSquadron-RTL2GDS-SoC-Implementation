@@ -1365,6 +1365,15 @@ run_cts
 ## Week 2
 <details>
  <summary><b>Phase 1 - ORFS Execution in GitHub Codespaces</b></summary>
+Fork this repo [vsd-scl180-orfs](https://github.com/vsdip/vsd-scl180-orfs)
+Click Code → Codespaces → Create codespace
+<img width="850" height="415" alt="image" src="https://github.com/user-attachments/assets/e9a670a0-8fb0-45fe-a342-f5c3ae90ed8a" />
+<img width="590" height="184" alt="image" src="https://github.com/user-attachments/assets/cd7a0843-78dd-4bac-b8ba-447884697530" />
+<img width="1086" height="331" alt="image" src="https://github.com/user-attachments/assets/4394c72f-92fe-4fa6-bfc3-1ec36f820768" />
+<img width="1093" height="444" alt="image" src="https://github.com/user-attachments/assets/5df467f5-657f-42ab-af16-e7c65d3dbf15" />
+<img width="1072" height="530" alt="image" src="https://github.com/user-attachments/assets/754e3d95-e15b-437d-a8ae-1b3f272d0f45" />
+
+ 
 
 </details>
 <details>
