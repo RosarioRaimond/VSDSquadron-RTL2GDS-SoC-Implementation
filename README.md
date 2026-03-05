@@ -1364,30 +1364,147 @@ run_cts
 
 ## Week 2
 <details>
- <summary><b>Phase 1 - ORFS Execution in GitHub Codespaces</b></summary>
-Fork this repo [vsd-scl180-orfs](https://github.com/vsdip/vsd-scl180-orfs)
-Click Code → Codespaces → Create codespace
-<img width="850" height="415" alt="image" src="https://github.com/user-attachments/assets/e9a670a0-8fb0-45fe-a342-f5c3ae90ed8a" />
-<img width="590" height="184" alt="image" src="https://github.com/user-attachments/assets/cd7a0843-78dd-4bac-b8ba-447884697530" />
-<img width="1086" height="331" alt="image" src="https://github.com/user-attachments/assets/4394c72f-92fe-4fa6-bfc3-1ec36f820768" />
-<img width="1093" height="444" alt="image" src="https://github.com/user-attachments/assets/5df467f5-657f-42ab-af16-e7c65d3dbf15" />
-<img width="1072" height="530" alt="image" src="https://github.com/user-attachments/assets/754e3d95-e15b-437d-a8ae-1b3f272d0f45" />
+ <summary><b>Phase 1 - ORFS Execution in GitHub Codespaces</b></summary>  
+ 
+ ### Task 1.1 - Repository Setup
+ 
+ Fork this repo [vsd-scl180-orfs](https://github.com/vsdip/vsd-scl180-orfs)   
+ 
+ Click Code → Codespaces → Create codespace
+ <img width="850" height="415" alt="image" src="https://github.com/user-attachments/assets/e9a670a0-8fb0-45fe-a342-f5c3ae90ed8a" />
+ <img width="590" height="184" alt="image" src="https://github.com/user-attachments/assets/cd7a0843-78dd-4bac-b8ba-447884697530" />
+ <img width="1086" height="331" alt="image" src="https://github.com/user-attachments/assets/4394c72f-92fe-4fa6-bfc3-1ec36f820768" />
+ <img width="1093" height="444" alt="image" src="https://github.com/user-attachments/assets/5df467f5-657f-42ab-af16-e7c65d3dbf15" />
+  
+  ```bash
+
+openroad -version
+yosys -V
+python3 --version
+make --version
+
+```
+ <img width="1072" height="530" alt="image" src="https://github.com/user-attachments/assets/754e3d95-e15b-437d-a8ae-1b3f272d0f45" />
+ <img width="496" height="386" alt="image" src="https://github.com/user-attachments/assets/7a422e65-6ba5-4c67-ba28-f9b4983c243d" />
+ <img width="1291" height="807" alt="image" src="https://github.com/user-attachments/assets/1f615b0d-2d3d-4025-a75a-bc37d001b060" />
 
  
+ ### Task 1.2 — Run Sky130 Testcase in Cloud
+  
+```
+# cd into the directory
+cd /workspaces/vsd-scl180-orfs/orfs/flow
+
+# List the files
+ls -ltr
+```
+
+<img width="1283" height="803" alt="image" src="https://github.com/user-attachments/assets/078f6441-d95b-429a-aeaa-5202d1c89cd8" />
+
+```
+# Open the Makefile in an editor
+gvim Makefile
+
+```
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/0e8f0767-1507-437f-9db3-c6a47b1bf47a" />
+
+```
+
+# Uncomment the line
+DESIGN_CONFIG=./designs/sky130hd/riscv32i/config.mk
+
+# Comment the line
+DESIGN_CONFIG=./designs/scl180fs120/gcd/config.mk
+
+```
+<img width="1286" height="805" alt="image" src="https://github.com/user-attachments/assets/6dff4a53-ece6-47db-8872-c7d151a20b4d" />
+
+```
+The make all command is used to run the complete flow which calls the following targets in order
+```
+
+<img width="1282" height="61" alt="image" src="https://github.com/user-attachments/assets/f9f43d8b-1949-4962-8001-99621bc0b101" />
+
+```
+
+# To find the total run time and capture the output on terminal, the full flow is run using 
+make all | tee raimond.log
+
+```
+<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/cb734635-c7d3-4197-8403-3a15ff308f53" />
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/075112d7-62be-49d3-b3bf-689338cf4509" />
+<img width="1284" height="803" alt="image" src="https://github.com/user-attachments/assets/c7fe4494-7caf-472c-98ba-8336f90141b3" />
+
+  
+The file was last written at 12:21 and the run was started at 11:43. Total runtime is 38 minutes. The exact amount of cpu time is reported at last, 2220 seconds =  37 minutes.
+
+```
+make gui_floorplan
+```
+<img width="1287" height="805" alt="image" src="https://github.com/user-attachments/assets/31247af2-004a-4623-955c-ee9ec466a3be" />
+
+```
+make gui_place
+```
+<img width="1282" height="804" alt="image" src="https://github.com/user-attachments/assets/a1b47394-0c91-4e38-af18-b7b48572aa93" />
+```
+make gui_cts
+```
+<img width="1285" height="805" alt="image" src="https://github.com/user-attachments/assets/48e41604-4315-452a-9d1a-8bbc86c6d917" />
+
+```
+make gui_route
+```
+<img width="1287" height="807" alt="image" src="https://github.com/user-attachments/assets/1182890a-3dad-40b7-8bfe-4fe3cc2bec53" />
 
 </details>
+
 <details>
  <summary><b>Phase 2 - Toolchain Understanding (Devcontainer Deep Dive)</b></summary>
+ 
+ ### Task 2.1 - Toolchain Mapping
+ ### Task 2.2 - Flow Architecture Explanation
+ 
+ ```
+make synth
+make floorplan
+make place
+make cts
+make route
+make finish
+```
+<img width="1283" height="802" alt="image" src="https://github.com/user-attachments/assets/09b723c2-7e1c-4db1-be66-3c6e71477659" />
+<img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/fb9e9d1a-0ca4-4c3c-bb8a-de0c08ca6e68" />
+
+<img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/893784d6-9d80-4e52-a3f0-da6d80d6d5fb" />
+<img width="1286" height="803" alt="image" src="https://github.com/user-attachments/assets/a298fe77-a628-4978-94de-ca09c746aaad" />
+
+<img width="1284" height="803" alt="image" src="https://github.com/user-attachments/assets/65407b7c-1b18-4345-a333-d51165ddfe59" />
+<img width="1285" height="803" alt="image" src="https://github.com/user-attachments/assets/e7bc1c9c-ec0b-4aef-9955-b940aa6dd5b9" />
+
+<img width="1284" height="805" alt="image" src="https://github.com/user-attachments/assets/c94a43cd-0287-4108-9f9c-fd1bba477c1d" />
+<img width="1284" height="804" alt="image" src="https://github.com/user-attachments/assets/b7d38be8-96d6-4b26-b569-3e27ca68c129" />
+
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/ce8650d2-e461-4157-b5ad-64f776b2f4d6" />
+
+<img width="1285" height="804" alt="image" src="https://github.com/user-attachments/assets/7b706581-86de-4eef-b05c-323346755e1c" />
+<img width="1286" height="804" alt="image" src="https://github.com/user-attachments/assets/ef9e5d38-1e81-4475-a150-394df42f0459" />
 
 </details>
+
 <details>
  <summary><b>Phase 3 - Local Installation (Self-Owned Environment)</b></summary>
 
+ ### Task 3.1 - Install ORFS Locally
+ ### Task 3.2 - Install Official OpenROAD
+
 </details>
+
 <details>
  <summary><b>Phase 4 - Re-Run RTL-to-GDS Locally</b></summary>
 
 </details>
+
 <details>
  <summary><b>Phase 5 - Debugging and Unix Literacy</b></summary>
 
